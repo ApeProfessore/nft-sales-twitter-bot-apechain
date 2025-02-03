@@ -7,8 +7,8 @@ dotenv.config();
  */
 const commonConfig = {
   use_local_images: false,
-  collection_name: 'Abstractors',
-  currency: 'ETH',
+  collection_name: 'Apes on Ape',
+  currency: 'APE',
   traits: {
     enabled: true,
     maxTraits: 25,
@@ -94,7 +94,7 @@ const apechainConfig = {
   ...commonConfig,
   discord: discordMessageConfig,
   twitter: twitterMessageConfig,
-  contract_address: '0xa6bAbE18F2318D2880DD7dA3126C19536048F8B0',
+  contract_address: '0x80f6aa4005f6e8069bc4ea0b527f295847aeac5f',
   contract_deployment_block: 7832296,
   token_id_offset: 1,
   image_api_url: 'APECHAIN_METADATA_BASE_URL',
