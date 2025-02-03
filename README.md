@@ -40,7 +40,6 @@ A Discord and Twitter bot that monitors and announces Apes on Ape NFT sales from
 5. Add the credentials to your `.env` file
 
 ## Configuration
-
 The bot is configured through `src/config.ts`. Here are the main configuration options:
 
 ### Collection Settings
@@ -61,6 +60,22 @@ Available template variables:
 - `{totalPrice}`: Total price for bulk sale
 - `{avgPrice}`: Average price per NFT in bulk sale
 - `{txUrl}`: Transaction URL
+
+
+### Abstract Chain Configuration
+To configure the bot for the Abstract chain, follow these steps:
+
+1. Set the RPC URL: Update the RPC_URL in your .env file to:
+   ```bash
+   RPC_URL=https://api.mainnet.abs.xyz
+   ```
+2. Set the Chain: In the .env file, set the CHAIN variable to abstract:
+   ```bash
+   CHAIN=abstract
+   ````
+3. Twitter Integration: Twitter integration is not implemented yet. (Coming soon)
+
+By following these steps, you can configure the bot to work with the Abstract chain.
 
 ## Development
 

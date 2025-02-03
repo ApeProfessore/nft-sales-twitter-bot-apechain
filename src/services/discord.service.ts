@@ -4,7 +4,7 @@ import { Client, GatewayIntentBits, GuildTextBasedChannel } from 'discord.js';
 import { createSaleMessage, createBulkBuyMessage, createBuyMessage, createBulkSaleMessage } from './discord-alerts';
 import { MessageType } from '../types/message-types';
 import { SaleData } from 'src/types/sale.types';
-import { config } from '../config';
+import config from '../config';
 
 @Injectable()
 export class DiscordService extends BaseService implements OnModuleInit {

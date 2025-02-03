@@ -1,5 +1,6 @@
 import { ColorResolvable, EmbedBuilder } from 'discord.js';
-import { config } from '../config';
+import BigNumber from 'bignumber.js';
+import config from '../config';
 
 const SHOW_TRAITS = config.traits.enabled;  // Extract the `enabled` flag from the traits config
 const FOOTER_TEXT = config.discord.footerText;  // Centralized footer text
@@ -119,8 +120,8 @@ function createBulkBuyMessage(
   imgUrl: string
 ) {
 
-  const totalPriceNum = parseFloat(totalPrice);
-  const avgPrice = count > 0 && !isNaN(totalPriceNum) ? totalPriceNum / count : 0;
+  const totalPriceNum = new BigNumber(totalPrice);
+  const avgPrice = count > 0 && !totalPriceNum.isNaN() ? totalPriceNum.dividedBy(count).toNumber() : 0;
 
    // Values to replace in the description
    const values = {
@@ -167,13 +168,16 @@ function createBulkSaleMessage(
   const totalPriceNum = parseFloat(totalPrice);
   const avgPrice = count > 0 && !isNaN(totalPriceNum) ? totalPriceNum / count : 0;
 
+  // Determine the number of decimal places for avgPrice based on the CHAIN
+  const decimalPlaces = process.env.CHAIN === 'apechain' ? 2 : 5;
+
    // Values to replace in the description
    const values = {
     count: count.toString(),
     totalPrice,
     marketplace,
     txUrl,
-    avgPrice: avgPrice.toFixed(2)
+    avgPrice: avgPrice.toFixed(decimalPlaces)
   };
 
   // Get the description with replaced values
