@@ -42,6 +42,11 @@ A Discord and Twitter bot that monitors and announces Apes on Ape NFT sales from
 ## Configuration
 The bot is configured through `src/config.ts`. Here are the main configuration options:
 
+To configure the bot run:
+```bash
+node src/init-config.js
+```
+
 ### Collection Settings
 ```typescript
 contract_address: '0x...',  // Your NFT contract address
