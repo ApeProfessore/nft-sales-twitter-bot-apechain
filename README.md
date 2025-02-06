@@ -49,6 +49,7 @@ node src/init-config.js
 
 ### Collection Settings
 ```typescript
+rpc_url: 'https://apechain.drpc.org' // RPC URL of the chain 
 contract_address: '0x...',  // Your NFT contract address
 contract_deployment_block: 2767904,  // Block where contract was deployed
 collection_name: 'Your Collection',  // Collection name
@@ -70,9 +71,9 @@ Available template variables:
 ### Abstract Chain Configuration
 To configure the bot for the Abstract chain, follow these steps:
 
-1. Set the RPC URL: Update the RPC_URL in your .env file to:
+1. Set the RPC URL: Update the RPC_URL in your config.ts file to:
    ```bash
-   RPC_URL=https://api.mainnet.abs.xyz
+   rpc_url=https://api.mainnet.abs.xyz
    ```
 2. Set the Chain: In the .env file, set the CHAIN variable to abstract:
    ```bash

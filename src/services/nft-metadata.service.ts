@@ -1,6 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { ethers } from 'ethers';
 import { BaseService } from './base.service';
+import config from '../config';
+
+const RPC_URL = config.rpc_url || 'https://apechain.drpc.org';
 
 export interface NFTMetadata {
   image: string;
@@ -53,9 +56,7 @@ export class NFTMetadataService extends BaseService {
 
   constructor() {
     super();
-    this.provider = new ethers.providers.JsonRpcProvider(
-      process.env.RPC_URL || 'https://apechain.drpc.org'
-    );
+    this.provider = new ethers.providers.JsonRpcProvider(RPC_URL);
   }
 
   private async resolveIPFSUrl(ipfsUrl: string): Promise<string> {

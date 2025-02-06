@@ -3,6 +3,9 @@ import { BaseService } from './base.service';
 import { ethers } from 'ethers';
 import { NFTMetadataService } from './nft-metadata.service';
 import { SaleData } from '../types/sale.types';
+import config from '../config';
+
+const RPC_URL = config.rpc_url || 'https://apechain.drpc.org';
 
 @Injectable()
 export class MagicEdenSalesService extends BaseService {
@@ -16,9 +19,7 @@ export class MagicEdenSalesService extends BaseService {
     this.ME_ADDRESSES = this.config.marketplaces.magiceden.addresses;
     console.log('Initialized Magic Eden sales monitor');
     
-    this.provider = new ethers.providers.JsonRpcProvider(
-      process.env.RPC_URL || 'https://apechain.drpc.org'
-    );
+    this.provider = new ethers.providers.JsonRpcProvider(RPC_URL);
     this.metadataService = metadataService;
   }
 

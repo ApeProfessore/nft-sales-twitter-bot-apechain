@@ -28,6 +28,12 @@ const questions = [
   },
   {
     type: 'input',
+    name: 'rpc_url',
+    message: 'Enter the RPC URL:',
+    default: 'https://apechain.drpc.org'
+  },
+  {
+    type: 'input',
     name: 'contract_deployment_block',
     message: 'Enter the contract deployment block:',
     default: 7832296
@@ -37,23 +43,18 @@ const questions = [
     name: 'token_id_offset',
     message: 'Enter the token ID offset:',
     default: 1
-  },
-  {
-    type: 'input',
-    name: 'image_api_url',
-    message: 'Enter the image API URL:',
-    default: 'APECHAIN_METADATA_BASE_URL'
   }
 ];
 
 inquirer.prompt(questions).then(answers => {
-  const { chain, collection_name, currency, contract_address, contract_deployment_block, token_id_offset, image_api_url } = answers;
+  const { chain, collection_name, currency, contract_address, rpc_url, contract_deployment_block, token_id_offset } = answers;
 
   const commonConfig = `
 const commonConfig = {
   use_local_images: false,
   collection_name: '${collection_name}',
   currency: '${currency}',
+  rpc_url: '${rpc_url}',
   traits: {
     enabled: true,
     maxTraits: 25,
@@ -139,7 +140,6 @@ const apechainConfig = {
   contract_address: '${contract_address}',
   contract_deployment_block: ${contract_deployment_block},
   token_id_offset: ${token_id_offset},
-  image_api_url: '${image_api_url}',
   marketplaces: {
     magiceden: {
       name: 'Magic Eden',
@@ -164,7 +164,6 @@ const abstractConfig = {
   contract_address: '${contract_address}',
   contract_deployment_block: ${contract_deployment_block},
   token_id_offset: ${token_id_offset},
-  image_api_url: '${image_api_url}',
   marketplaces: {
     magiceden: {
       name: 'Magic Eden',

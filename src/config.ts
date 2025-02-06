@@ -11,6 +11,7 @@ const commonConfig = {
   use_local_images: false,
   collection_name: 'Apes on Ape',
   currency: 'APE',
+  rpc_url: 'https://apechain.drpc.org',
   traits: {
     enabled: true,
     maxTraits: 25,
@@ -105,7 +106,6 @@ const apechainConfig = {
   contract_address: '0xa6babe18f2318d2880dd7da3126c19536048f8b0',
   contract_deployment_block: 7832296,
   token_id_offset: 1,
-  image_api_url: 'APECHAIN_METADATA_BASE_URL',
   marketplaces: {
     magiceden: {
       name: 'Magic Eden',
