@@ -146,7 +146,8 @@ const apechainConfig = {
       addresses: [
         '0x0000000000000068F116a894984e2DB1123eB395',
         '0x1d3a594EAf472ca2ceC2A8aE44478c06d6A37E22',
-        '0x224ecB4Eae96d31372D1090c3B0233C8310dBbaB'
+        '0x224ecB4Eae96d31372D1090c3B0233C8310dBbaB',
+        '0x077FCcCE4b2DFB5cF5Ca2A1C95ee44769C950484'
       ],
       icon: './platform_images/magiceden.png',
       item_url: 'https://magiceden.io/item-details/apechain/{contract}/{tokenId}'
